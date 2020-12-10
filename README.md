@@ -1,12 +1,13 @@
 # READ ME
 
-*Flarester* allows users to create and/or join events in their area--similar to 'Meetup' in this way, *Flarester* differentiates itself by aiming to provide these services only for near-future events--events occuring within two hours of being listed. Once created, listings populate to the local event list and are automatically removed once their scheduled time has passed.  
-
-*Flarester* creates opportunities for casual networking, promotes new friendships and amplifies the user's ability to expand their world.
-
-Future functionality will allow users to update events they've created and remove them from view prior to their expiration. 
+Flarester allows users to create and/or join events in their area similar to Meetup. But Flarester differentiates itself by aiming to provide these services only for events occuring within two hours of being listed. Once created, listings populate to the local event list and are automatically removed once their scheduled time has expired.  
 
 
+**Check it out at the link below:**
+
+https://powerful-eyrie-94140.herokuapp.com/
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
                                                  Create an account
                                                   
@@ -49,7 +50,7 @@ Future functionality will allow users to update events they've created and remov
 -----------------------------------------------------------------------------------------------------------------------------------
 
 
-**We used Ruby version 2.6.1**
+**Ruby version 2.6.1**
 
 **Once you've cloned the repo, make sure to run the following commands from the app's directory:**
 - `bundle install`
@@ -65,29 +66,3 @@ Future functionality will allow users to update events they've created and remov
 
 - The app does have a test suite--if you plan on running it, you'll need to install Rspec with `rails g rspec:install` 
 Once installed, simply type `rspec` into the command line and hit return--this should run the suite.
-
-
------------------------------------------------------------------------------------------------------------------------
-
-**Our app is on Heroku! Save time and check it out at the link below:**
-
-https://powerful-eyrie-94140.herokuapp.com/
-
-And now that you have an extra minute or two, watch our demo on YouTube:
-https://www.youtube.com/watch?v=qXVh9aJf92c&feature=youtu.be  
-
-- Login page image courtesy of https://unsplash.com/ !
-- Credit also goes to  https://fonts.google.com/ (*Flarester* uses Racing Sans One for its logo)
-
-Thanks for stopping by :thumbsup: :thumbsup:
-
-         "Every great developer you know got there by solving problems they were unqualified to solve 
-          until they actually did it." 
-                                                                              - Patrick McKenzie
-
-
-
-
-
-# flarester
-# flarester
