@@ -1,6 +1,6 @@
 # READ ME
 
-Flarester allows users to create and/or join events in their area similar to Meetup. But Flarester differentiates itself by aiming to provide these services only for events occuring within two hours of being listed. Once created, listings populate to the local event list and are automatically removed once their scheduled time has expired.  
+Flarester allows users to create and/or join events in their area similar to Meetup. Flarester differentiates itself by aiming to provide these services only for events occuring within two hours of being listed. Once created, listings populate to the local event list and are automatically removed once their scheduled time has expired.  
 
 
 **Check it out at the link below:**
