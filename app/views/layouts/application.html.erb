@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flarester</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+    <div class = "container" >
+    <br>
+      <h1 style="font-family: 'Racing Sans One', cursive; font-size: 50pt; color: rgb(228,84,68);"> Flarester</h1>
+    </div>
+  </header>
+    <div class = "container" >
+      <nav>
+        <ul class="nav justify-content-end">
+          <% if @user && @user.id %>
+          <%# what you want to show if logged in goes here %>
+            <li class="nav-item"><%= link_to "Profile", user_path(@user), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Logout", login_path, method: :delete, class: "nav-link" %></li>
+          <%# what you want to show if NOT logged in goes here -- don't forget to add your 'else' %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+    <div class = "container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

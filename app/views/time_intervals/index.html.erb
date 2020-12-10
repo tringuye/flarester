@@ -1,0 +1,7 @@
+<h1>Time intervals</h1>
+<ul>
+<% @time_intervals.each do |time_interval| %>
+<li>Current time: <%= TimeInterval.format_time(@time_now) %><br>
+<%= TimeInterval.format_time(time_interval.to_event_time(@time_now)) %></li>
+<% end %>
+</ul>

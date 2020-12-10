@@ -1,0 +1,12 @@
+
+<ul>
+<% @user_events.each do |user_event| %>
+<li>Event: <%= user_event.event.name %><br>
+Event type: <%= user_event.event.category.name %><br>
+When: <%= TimeInterval.format_time(user_event.event.event_time.to_time) %><br>
+Where: <%= user_event.event.location.name_city %><br>
+Notes: <%= user_event.event.notes %><br>
+You'll be joining: <%= user_event.user.full_name %><br>
+Questions? Call <%= user_event.user.first_name %> at <%= user_event.user.formatted_phone_number %></li>
+<% end %>
+</ul>

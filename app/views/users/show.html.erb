@@ -1,0 +1,38 @@
+<h1><%= @user.username %></h1>
+<h3>First name: <%= @user.first_name %></h3>
+<h3>Last name: <%= @user.last_name %></h3>
+<h3>Location: <%= @user.city.name_state %></h3>
+<h3>Phone: <%= @user.formatted_phone_number %></h3><br>
+
+<%= link_to "Back to #{@user.city.name_state} events", events_path %>
+<br>
+<br>
+<% if @user.last_event %>
+
+<h2>Your stats:</h2><br>
+
+<h3>"<%= @user.last_event.name %>" was the last event you participated in</h3>
+<br>
+<h3>You've been a part of <%= @user.total_attended %> event(s) </h3>
+<ul>
+<li><h5>you coordinated <%= @user.total_coordinated %> of them</h5></li>
+<li><h5>you joined <%= @user.total_joined %> of these</h5></li>
+</ul>
+<h3>Here's a list of those events</h3>
+<ul><% @user.events.each do |event| %>
+  <li><h5><%= event.name %> <%= event.created_at.strftime("%m/%d/%Y")%></h5>
+      <% if event.users.count > 1%>
+        <p><%= event.users.count %> people attended</p></li>
+      <% else %>
+        <p><%= event.users.count %> person attended</p></li>
+      <% end %>
+    <% end %>
+</ul>
+<h3>That's an average of <%= @user.average_number_of_participants %> people per event </h3>
+<h3>You typically participate in events that occur within <%= @user.average_time_interval %> minutes of having been created</h3>
+<% end %>
+<br>
+<br>
+<%= link_to "Update info", edit_user_path(@user), class: "btn btn-primary btn-sm" %>
+<br>
+<br>

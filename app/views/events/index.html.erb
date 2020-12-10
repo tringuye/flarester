@@ -1,0 +1,42 @@
+<h1>Welcome, <%= @user.full_name %>!</h1>
+<br>
+<br>
+<% if @user.user_events.count > 0 %>
+  <% unless @user.user_events.last.event.event_time.to_time < Time.now %>
+    <% if @user.upcoming_events == 1 %>
+      <h3>You're attending this event:</h3><br>
+    <% elsif @user.upcoming_events > 1 %>
+      <h3>You're attending <%= @user.upcoming_events %> events:</h3><br>
+    <% end %>
+  <% end %>
+  <% @user.user_events.each do |user_event| %>
+    <% if user_event.event.event_time.to_time > Time.now && user_event.event.city == @user.city %>
+      <h3><%= link_to "#{user_event.event.name.upcase}     #{TimeInterval.format_time(user_event.event.event_time.to_time)}", user_event_path(user_event) %></h3>
+      <h4>@ <%= user_event.event.location.name %></h4><br>
+      <br>
+      <br>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if @unattended_events == 1 && @user.upcoming_events > 0 %>
+  <h3>There's currently <%= @unattended_events %> other event in <%= @user.city.name_state %></h3>
+<% elsif @unattended_events ==1 && @user.upcoming_events == 0 %>
+  <h3>There's currently <%= @unattended_events %> event in <%= @user.city.name_state %></h3>
+<% elsif @unattended_events > 0 && @user.upcoming_events > 0 %>
+  <h3>There are currently <%= @unattended_events %> other events in <%= @user.city.name_state %></h3>
+<% elsif @unattended_events > 0 && @user.upcoming_events == 0 %>
+  <h3>There are currently <%= @unattended_events %> events in <%= @user.city.name_state %></h3>
+<% end %>
+<ul>
+<% @events.each do |event| %>
+  <% if !event.users.ids.include?(@user.id) %>
+    <li><%=link_to "#{event.name.capitalize} @ #{event.location.name} #{TimeInterval.format_time(event.event_time.to_time)}", event_path(event) %> 
+  <% end %>
+<% end %>
+<br>
+<br>
+</ul>
+<li style="list-style-type: none"><%= link_to "Create Event", new_event_path, class: "btn btn-primary"%></li>
+</ul>
+

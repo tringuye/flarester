@@ -1,0 +1,36 @@
+<%# <%= image_tag("flare.jpg", class: "img-fluid.max-width: 100% height:auto", alt: "Responsive image") %> 
+
+<%# <img src="/assets/flare.jpg" class="img-fluid" alt="Responsive image"> %>
+
+<% if @error %>
+  <p><%= @error %></p>
+<% end %>
+
+<div class="card bg-dark text-white" style="height: 50px;">
+  <%# <img src="/assets/flare.jpg" class="card-img"> %>
+  <%=image_tag('flare.jpg', class:'card-img')%>
+  <div class="card-img-overlay">
+    <br>
+    <br>
+    <%= form_for @user, url: {controller: "sessions", action: "create"} do |f| %>
+    <div class="row">
+      <div class="field form-group col-md-4">
+      <%= f.label :username %><br>
+      <%= f.text_field :username, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field form-group col-md-4">
+      <%= f.label :password %><br>
+      <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+    <br>
+      <%= f.submit "Login", class: 'btn btn-success'%>
+
+    <% end %>
+    <br>
+    <p>First time here? <%= link_to "Create an account", new_user_path %>
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<h3>Category: <%= @event.category.name %></h3>
+<h1><%= @event.name.upcase %>     <%=TimeInterval.format_time(@event.event_time.to_time) %></h1>
+<h2>@ <%= @event.location.name %></h2>
+<% if @coordinator %>
+  <p>Coordinator: <%= @coordinator.first_name %> </p><br>
+<% end %>
+<h2>Notes: </h2>
+<p><%= @event.notes %></p>
+
+<%= form_for @user_event do |f| %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+  <%= f.submit "Join event", class: "btn btn-success" %>
+<% end %>
+<br>
+<%= link_to "Back to #{@user.city.name_state} events", events_path %>
